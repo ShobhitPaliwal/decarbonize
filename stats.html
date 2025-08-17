@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DeCarbonize — Stats</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header safe">
+    <div class="topbar">
+      <div class="brand">DeCarbonize</div>
+      <a class="avatar" href="#" aria-label="Profile">T</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Gauge -->
+    <section class="hero-gauge">
+      <div class="gauge-card">
+        <svg class="gauge" viewBox="0 0 120 120">
+          <defs>
+            <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#2ecc71" />
+              <stop offset="100%" stop-color="#27ae60" />
+            </linearGradient>
+          </defs>
+          <circle class="gauge-bg" cx="60" cy="60" r="54" />
+          <circle class="gauge-progress" cx="60" cy="60" r="54" />
+        </svg>
+        <div class="gauge-center">
+          <div class="gauge-value">356</div>
+          <div class="gauge-label">kg CO₂</div>
+        </div>
+      </div>
+    </section>
+
+<!-- Carbon Transactions -->
+<section class="transactions-section">
+  <h2 class="section-title">Recent Carbon Transactions</h2>
+  <div class="transactions-list">
+
+    <div class="transaction-card">
+      <img src="images/starbucks.png" alt="Starbucks Logo" class="transaction-logo">
+      <div class="transaction-info">
+        <span class="transaction-title">Caramel Frappuccino</span>
+        <span class="transaction-carbon">+2.4 kg CO₂</span>
+      </div>
+    </div>
+
+    <div class="transaction-card">
+      <img src="images/dominos.png" alt="Domino's Logo" class="transaction-logo">
+      <div class="transaction-info">
+        <span class="transaction-title">Large Pepperoni Pizza</span>
+        <span class="transaction-carbon">+3.1 kg CO₂</span>
+      </div>
+    </div>
+
+        <!-- Clothes Transactions -->
+    <div class="transaction-card">
+      <img src="images/myntra.png" alt="Nike Logo" class="transaction-logo">
+      <div class="transaction-info">
+        <span class="transaction-title">Nike Running Shoes</span>
+        <span class="transaction-carbon">+8.2 kg CO₂</span>
+      </div>
+    </div>
+
+    <div class="transaction-card">
+      <img src="images/uber.png" alt="Uber Logo" class="transaction-logo">
+      <div class="transaction-info">
+        <span class="transaction-title">Uber Ride (5 km)</span>
+        <span class="transaction-carbon">+5.8 kg CO₂</span>
+      </div>
+    </div>
+
+    <div class="transaction-card">
+      <img src="images/zomato.png" alt="Zomato Logo" class="transaction-logo">
+      <div class="transaction-info">
+        <span class="transaction-title">Salad Bowl Lunch</span>
+        <span class="transaction-carbon">+0.9 kg CO₂</span>
+      </div>
+    </div>
+
+    <div class="transaction-card blur-card">
+      <img src="images/myntra.png" alt="Myntra Logo" class="transaction-logo">
+      <div class="transaction-info">
+        <span class="transaction-title">Myntra Cotton T-Shirt</span>
+        <span class="transaction-carbon">+2.0 kg CO₂</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Chart -->
+    <section class="trend-section">
+      <h2 class="section-title">Monthly Footprint Trend</h2>
+      <div class="trend-card">
+        <canvas id="monthlyTrendChart"></canvas>
+      </div>
+    </section>
+
+  </main>
+
+
+    <div class="page-footer-info">
+        <p>© 2025 All rights reserved</p>
+        <p>Made with ❤️ by Sapphire</p>
+    </div>
+
+
+    <footer>
+        <div class="footer-nav">
+            <button class="nav-btn" onclick="location.href='index.html'">
+                <span class="icon">🏠</span>
+                <span class="label">Home</span>
+            </button >
+            <button class="nav-btn" onclick="location.href='stats.html'">
+                <span class="icon">📊</span>
+                <span class="label">Stats</span>
+            </button>
+            <button class="nav-btn" onclick="location.href='lead.html'">
+        <span class="icon">🏆</span>
+        <span class="label">Leaderboard</span>
+      </button>
+            <button class="nav-btn" onclick="location.href='settings.html'">
+                <span class="icon">⚙️</span>
+                <span class="label">Settings</span>
+            </button>
+    </footer>
+
+
+
+  <!-- JS for Chart -->
+  <script>
+    new Chart(document.getElementById('monthlyTrendChart'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+          label: 'kg CO₂',
+          data: [200, 180, 150, 170, 140, 120, 110],
+          fill: true,
+          backgroundColor: 'rgba(46, 204, 113, 0.2)',
+          borderColor: '#2ecc71',
+          tension: 0.4,
+          pointRadius: 3
+        }]
+      },
+      options: { plugins: { legend: { display: false }}, scales: { y: { beginAtZero: true } } }
+    });
+  </script>
+
+</body>
+</html>

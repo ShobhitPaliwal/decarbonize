@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DeCarbonize — Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <header class="app-header safe">
+    <div class="topbar">
+      <div class="brand">DeCarbonize</div>
+      <a class="avatar" href="#" aria-label="Profile">T</a>
+    </div>
+  </header>
+
+        <div class="greeting">
+            <h1>Hi, Tanish <span style="font-size:20px">👋</span></h1>
+            <p>Here’s an overview of your carbon footprint</p>
+        </div>
+    </header>
+
+    <!-- Just to show scroll under the sticky header -->
+    <section class="hero-gauge">
+        <div class="gauge-card">
+            <svg class="gauge" viewBox="0 0 120 120">
+                <defs>
+                    <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#2ecc71" />
+                        <stop offset="100%" stop-color="#27ae60" />
+                    </linearGradient>
+                </defs>
+                <circle class="gauge-bg" cx="60" cy="60" r="54" />
+                <circle class="gauge-progress" cx="60" cy="60" r="54" />
+            </svg>
+            <div class="gauge-center">
+                <div class="gauge-value">234</div>
+                <div class="gauge-label">kg CO₂</div>
+            </div>
+        </div>
+        <!-- Wave Divider -->
+        <!-- Wave Divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path id="wavePath1" fill="rgba(255,255,255,1)"></path>
+                <path id="wavePath2" fill="rgba(255,255,255,0.5)"></path>
+            </svg>
+        </div>
+
+    </section>
+
+    <section class="categories-wrapper">
+        <button class="scroll-btn left" onclick="scrollCategories(-1)">&#10094;</button>
+
+        <div class="categories">
+            <div class="category-card" style="--progress:70%">
+                <div class="cat-header">
+                    <div class="cat-icon">🚗</div>
+                    <div class="cat-name">Travel</div>
+                </div>
+                <div class="cat-value">120 kg CO₂</div>
+                <div class="cat-progress">
+                    <div class="cat-progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="category-card" style="--progress:40%">
+                <div class="cat-header">
+                    <div class="cat-icon">🏠</div>
+                    <div class="cat-name">Home</div>
+                </div>
+                <div class="cat-value">80 kg CO₂</div>
+                <div class="cat-progress">
+                    <div class="cat-progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="category-card" style="--progress:20%">
+                <div class="cat-header">
+                    <div class="cat-icon">🍔</div>
+                    <div class="cat-name">Food</div>
+                </div>
+                <div class="cat-value">34 kg CO₂</div>
+                <div class="cat-progress">
+                    <div class="cat-progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="scroll-btn right" onclick="scrollCategories(1)">&#10095;</button>
+    </section>
+
+
+    <section class="trend-section">
+        <h2 class="section-title">Your Carbon Trend</h2>
+        <div class="trend-card">
+            <canvas id="carbonChart"></canvas>
+        </div>
+    </section>
+
+    <section class="comparison-section">
+        <h2 class="section-title">How You Compare</h2>
+        <div class="comparison-card">
+            <canvas id="comparisonChart"></canvas>
+            <div id="performanceEmoji" class="performance-emoji"></div>
+        </div>
+    </section>
+
+<section class="eco-tips-section">
+  <h2 class="section-title">Eco Tips</h2>
+
+  <!-- Left Button -->
+  <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="blob-card">
+      <div class="tip-icon">🌱</div>
+      <h3>Plant More Trees</h3>
+      <p>Trees absorb CO₂ and help fight climate change.</p>
+    </div>
+
+    <div class="blob-card">
+      <div class="tip-icon">🚴‍♂️</div>
+      <h3>Cycle to Work</h3>
+      <p>Reduce emissions and improve your health.</p>
+    </div>
+
+    <div class="blob-card">
+      <div class="tip-icon">💡</div>
+      <h3>Switch to LED Lighting</h3>
+      <p>Save electricity and lower your carbon footprint.</p>
+    </div>
+  </div>
+  <!-- Right Button -->
+  <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
+</section>
+
+
+<section class="eco-news">
+  <h2 class="section-title">Real Eco News</h2>
+
+  <div class="news-carousel-wrapper">
+    <button class="news-btn left" onclick="scrollNews(-1)">&#10094;</button>
+
+    <div class="news-carousel" id="newsCarousel">
+      
+      <article class="news-card">
+        <h3>Amazon Cuts Single-Use Plastic by 16%</h3>
+        <p>In 2024, Amazon reduced its plastic packaging footprint by 16%, eliminating over 74,000 metric tons of plastic. They switched to 100% recyclable paper mailers, paper tape, and optimized packaging sizes. Goal: eliminate all single-use plastic in packaging by 2030.</p>
+        <a href="https://www.reuters.com/sustainability/amazon-wins-green-praise-brown-bag-packaging-ross-kerber-2025-08-13/?utm_source=chatgpt.com" target="_blank" class="read-more">Read More</a>
+      </article>
+
+      <article class="news-card">
+        <h3>Norwegian Net-Zero Cement Sells Out</h3>
+        <p>Heidelberg Materials’ Brevik plant captures 400,000 tonnes of CO₂ annually. All net-zero cement production for 2025 has been sold out, marking a huge step in decarbonizing the construction industry.</p>
+        <a href="https://www.reuters.com/sustainability/climate-energy/heidelberg-sells-out-net-zero-cement-norway-plant-ceo-says-2025-06-18/?utm_source=chatgpt.com" target="_blank" class="read-more">Read More</a>
+      </article>
+
+      <article class="news-card">
+        <h3>Oberoi Hotels to Recycle 100% Wastewater</h3>
+        <p>The Oberoi Group will recycle all wastewater by 2030, cut fresh water use per room by 20%, source 50% renewable electricity, and shift to an all-EV fleet for guests and staff.</p>
+        <a href="https://timesofindia.indiatimes.com/business/india-business/oberoi-hotels-plans-to-recycle-100-waste-water-by-2030-at-its-properties/articleshow/121886896.cms?utm_source=chatgpt.com" target="_blank" class="read-more">Read More</a>
+      </article>
+
+      <article class="news-card">
+        <h3>Apple Shrinks Carbon Footprint by 5%</h3>
+        <p>Apple cut its greenhouse gas emissions by 800,000 metric tons in 2024. Since 2013, emissions have dropped over 60% through recycled materials and supplier renewable energy adoption.</p>
+        <a href="https://www.theverge.com/news/650082/apple-environmental-progress-report-greenhouse-gas-emissions-climate-energy?utm_source=chatgpt.com" target="_blank" class="read-more">Read More</a>
+      </article>
+
+      <article class="news-card">
+        <h3>AI’s Environmental Footprint Measured</h3>
+        <p>French AI company Mistral’s tracker shows 20.4 kilotons of CO₂ and 281,000 cubic meters of water used in early 2025 alone, raising awareness about AI's hidden climate costs.</p>
+        <a href="https://www.itpro.com/technology/artificial-intelligence/mistrals-new-sustainability-tracker-tool-shows-the-impact-ai-has-on-the-environment-and-it-makes-for-sober-reading?utm_source=chatgpt.com" target="_blank" class="read-more">Read More</a>
+      </article>
+
+    </div>
+
+    <button class="news-btn right" onclick="scrollNews(1)">&#10095;</button>
+  </div>
+</section>
+
+
+
+    <div class="page-footer-info">
+        <p>© 2025 All rights reserved</p>
+        <p>Made with ❤️ by Sapphire</p>
+    </div>
+
+
+    <footer>
+        <div class="footer-nav">
+            <button class="nav-btn" onclick="location.href='index.html'">
+                <span class="icon">🏠</span>
+                <span class="label">Home</span>
+            </button>
+            <button class="nav-btn" onclick="location.href='stats.html'">
+                <span class="icon">📊</span>
+                <span class="label">Stats</span>
+            </button>
+            <button class="nav-btn" onclick="location.href='lead.html'">
+        <span class="icon">🏆</span>
+        <span class="label">Leaderboard</span>
+      </button>
+            <button class="nav-btn" onclick="location.href='settings.html'">
+                <span class="icon">⚙️</span>
+                <span class="label">Settings</span>
+            </button>
+    </footer>
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</html>
